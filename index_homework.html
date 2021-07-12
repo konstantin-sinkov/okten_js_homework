@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // - Створити змінні. Присвоїти кожному з них значення: 'hello','owu','com', 'ua', 1, 10, -999, 123, 3.14, 2.7, 16, true, false.
+        //     Вивести кожну змінну за допомогою: console.log , alert, document.write
+
+        let str1 = 'hello',
+            str2 = 'owu',
+            str3 = 'com',
+            str4 = 'ua',
+            num = 1,
+            num1 = 10,
+            num2 = -999,
+            num3 = 123,
+            num4 = 3.14,
+            num5 = 2.7,
+            num6 = 16,
+            booleanTrue = true,
+            booleanFalse = false;
+
+        console.log(`${str1}, ${str2}, ${str3}, ${str4}, ${num}, ${num1}, ${num2}, ${num3}, 
+                    ${num4}, ${num5}, ${num6}, ${booleanTrue}, ${booleanFalse}`);
+        // alert(`${str1}, ${str2}, ${str3}, ${str4}, ${num}, ${num1}, ${num2}, ${num3}, ${num4}, ${num5}, ${num6}, ${booleanTrue}, ${booleanFalse}`);
+        document.write(`${str1}, ${str2}, ${str3}, ${str4}, ${num}, ${num1}, ${num2}, ${num3},
+                        ${num4}, ${num5}, ${num6}, ${booleanTrue}, ${booleanFalse}`);
+
+        // - Переприсвоїти кожну змінну з завдання вище на будь які довільні значення.
+
+        str1 = 'good bye!';
+        str2 = 'owu';
+        str3 = 'gov';
+        str4 = 'uk';
+        num = 0.1;
+        num1 = 0.11;
+        num2 = -777;
+        num3 = 321;
+        num4 = 2.68;
+        num5 = 7.2;
+        num6 = 61;
+        booleanTrue = false;
+        booleanFalse = true;
+
+        //     Вивести кожну змінну за допомогою: console.log , alert, document.write
+
+        console.log(`${str1}, ${str2}, ${str3}, ${str4}, ${num}, ${num1}, ${num2}, ${num3}, 
+                    ${num4}, ${num5}, ${num6}, ${booleanTrue}, ${booleanFalse}`);
+        // alert(`${str1}, ${str2}, ${str3}, ${str4}, ${num}, ${num1}, ${num2}, ${num3}, ${num4}, ${num5}, ${num6}, ${booleanTrue}, ${booleanFalse}`);
+        document.write(`${str1}, ${str2}, ${str3}, ${str4}, ${num}, ${num1}, ${num2}, ${num3},
+                        ${num4}, ${num5}, ${num6}, ${booleanTrue}, ${booleanFalse}`);
+
+        // - Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ. Зконкатенувати їх в одну змінну person.
+        let firstName, middleName, lastName;
+
+        firstName = 'Kostiantyn';
+        middleName = 'Serhiyovych';
+        lastName = "Sin'kov";
+
+        let person = `${lastName} ${firstName} ${middleName}`;
+        console.log(person);
+
+        // - За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками.
+        // Вивести "Вітаю *Імя* *По батькові*. Тобі *вік* років".
+        let yourFirstName = prompt('enter Your firstName!'),
+            yourMiddleName = prompt('enter Your middleName!'),
+            yourAge = prompt('enter Your Age!');
+
+        alert(`Вітаю ${yourFirstName} ${yourMiddleName}! Тобі ${yourAge} рочків!`);
+
+        // - За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
+        let a = 100; let b = '100'; let c = true;
+
+        console.log(typeof(a));
+        console.log(typeof(b));
+        console.log(typeof(c));
+
+        // - Поставет відповідний оператор в виразах що б вийшов відповідний результат.
+        //     В однакових виразаї не використовувати однакові оператори!!!
+
+        // 5 < 6 -> true
+        // 5 > 6 -> false
+        // 5 == 6 -> false
+        // 5 >= 6 -> false
+        // 10 == 10 -> true
+        // 10 === 10 -> true
+        // 10 < 10 -> false
+        // 10 != 10 -> false
+        // 10 > 10 -> false
+        // 123 === '123' -> false
+        // 123 == '123' -> true
+
+        // Додатково:
+        //     - Подивіться на наступні вирази і спробуйте вгадати яким буде вивід в консоль. Перевірте себе.
+        // console.log(132 > 100 && 45 < 12 ); -> false
+        // console.log(34 > 33 && 23 < 90 ); -> true
+        // console.log(99 > 100 && 45 > 12 ); -> false
+        // console.log(132 > 100 || 45 < 12 ); -> true
+        // console.log(111 > 11 || 45 < 111 ); -> true
+        // console.log((111 > 11 || 45 < 111) && (132 > 100 || 45 < 12) ); -> true
+        // console.log((111 > 11 || 45 < 56) || (132 > 100 || 45 < 12) ); -> true
+        // console.log((132 > 100 && 45 < 12 ) && (132 > 100 || 45 < 12 ) ); -> false
+        // console.log((111 > 11 || 45 < 111) || (99 > 100 && 45 > 12 )); -> true
+        // console.log(!!'-1'); -> true
+        // console.log(!!-1); -> true
+        // console.log(!!'0'); -> true
+        // console.log(!!'null'); -> true
+        // console.log(!!'undefined'); -> true
+        // console.log(!!(3/'owu')); -> false
+        // console.log((111 > 11 || 45 < 111) ||  !!'0'); -> true
+        // console.log((!!111 == !!11 || 45 < 111) && (99 > 100 && 45 > 12 )); -> false
+    </script>
+
+</body>
+</html>
