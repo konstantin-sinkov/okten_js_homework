@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 1. Оголосіть змінні str, num, flag и txt зі значеннями «Привіт», 123, true, «true».
+        // За допомогою typeof переконайтесь, що значення змінних належать типам: string, number и  boolean.
+        let str = "Привіт";
+        let num = 123;
+        let flag = true;
+        let txt = "true";
+
+        console.log(`${typeof(str)}, ${typeof(num)}, ${typeof(flag)}, ${typeof(txt)}`);
+
+        // 2. Оголосіть змінні a1, a2, a3, a4, a5. За домогою 3х математичних оператцій отримайте числа:
+        //     34,
+        //     12,
+        //     66,
+        //     90,
+        //     87
+        //     Старайтесь використовувати різні оператори.
+        //     Example: 88 = (16 / 2) * 11
+        let a1 = 8;
+        let a2 = 9;
+        let a3 = 7;
+        let a4 = 6;     
+        let a5 = 3;
+
+        console.log((a2 * a5) + a3);
+        console.log((a2 + a4) - a5);
+        console.log((a1 * a2) - a4);
+        console.log(a1 * a2 + a4 * a5);
+        console.log(a2 * a3 + a1 * a5);
+        
+
+        // 3.  Створіть змінні a6, a7, a8, a9, a10. Запишіть в них результати виразів:
+        //     5 % 3,
+        //     3 % 5,
+        //     5 + '3',
+        //     '5' - 3,
+        //     75 + 'кг'
+        let a6 = 5 % 3;
+        let a7 = 3 % 5;
+        let a8 = 5 + '3';
+        let a9 = '5' - 3;
+        let a10 = 75 + 'кг';
+
+
+        // 4. Напишіть код, який вираховує площу прямокутника висотою 23см. (змінна height) та шириною 10см (змінна width).
+        // Значееня площі зберігати в змінній s.
+        let height = '23см';
+        let width = '10см';
+
+        let s = (parseInt(height) * parseInt(width));
+        console.log(`${s}  см. кв.`);
+
+        // 5.  Напиши код, который находит объем цилиндра высотой 10м (переменная heightC) и диаметром основания 4м (dC),
+        //     результат поместите в переменную v.
+        let heightC = '10м';
+        let dC = '4м';
+
+        let v = (3.14 * Math.pow(parseInt(dC), 2) /4) * parseInt(heightC);
+        console.log(`${v}  м. куб.`);
+
+
+        // 6. У прямоугольного треугольника две стороны n (со значением 3) и m (со значением 4).
+        // Найдите гипотенузу k по теореме Пифагора (нужно использовать функцию Math.pow(число, степень) или оператор возведения в степень ** ).
+        let n = 3;
+        let m = 4;
+
+        let k = Math.pow(Math.pow(n, 2) + Math.pow(m, 2), 0.5);
+        console.log(k);
+
+
+        // 8. Вывести в окно браузера при помощи метода alert() следующие данные: Ваше ФИО, возраст, хобби (каждой на новой строки спомощью \n).
+        alert(`Sin'kov Kostiantyn Serhiyovych\n 34 y.o.\n internet serfing`);
+
+        // 9. Создать 4 переменные с использованием ключевого слова let с именами str1, str2, str3, concatenation.
+        // Переменной str1 присвоить фразу ‘Кто ‘, str2 – ‘ты ‘, str3 – ‘такой?’
+        // Локальной переменной concatenation присвоить результат конкатенации 3-х строк: str1, str2, str3.
+        // Вывести в документ содержимое переменной concatenation спомощью document.write
+        let str1, str2, str3, concatenation;
+
+        str1 = 'Кто';
+        str2 = 'ты';
+        str3 = 'такой?';
+        concatenation = `${str1} ${str2} ${str3}`;
+
+        document.write(concatenation);
+
+
+        // 10. Подумайте Какие значения выведет в окно браузера следующий фрагмент кода?  и почему?
+        //     let str = "20";
+        //     let a = 5;
+        //     document.write(str + a + "<br/>"); -> 205 - строка + число = сконкатенована строка
+        //     document.write(str - a + "<br/>"); -> 15 - "-" зі строкою перетворює її на число
+        //     document.write(str * "2" + "<br/>"); -> 40 - "*" намагатиметься привести строки до чисел
+        //     document.write(str / 2 + "<br/>"); -> 10 - аналогічно
+
+
+
+        // 13. С помощью окна ввода, вызываемого методом prompt, сделать сложение двух чисел, а вывод результата при помощи метода alert
+        let number1 = prompt('Enter the 1st number');
+        let number2 = prompt('Enter the 2nd number');
+
+        alert(`Sum is ${number1 + number2}`);
+
+
+        // 14. С помощью окна ввода, вызываемого методом prompt, пользователь последовательно выводит имя, фамилию и возраст, а вам не обходимо вывести строку такого вида
+        //     Доброго вечера Иван Иванов, мои поздравления что вам 32 , а вывод результата при помощи метода alert
+        let userName = prompt('Enter Your name');
+        let userSurname = prompt('Enter Your surname');
+        let userAge = prompt('Enter Your age');
+
+        alert(`Доброго вечера ${userName} ${userSurname}, мои поздравления что вам ${userAge}!`);
+
+
+
+        // =====================
+        // ======ДОП============
+        // =====================
+
+
+
+        // 1. Три різних числа вводяться через prompt().
+        // За допомоги if else вивести іх в порядку зростання. (відсортувати по зростанню)
+        let number_1 = prompt('Enter 1st number!');
+        let number_2 = prompt('Enter 2nd number!');
+        let number_3 = prompt('Enter 1rd number!');
+
+        if (number_1 > number_2 && number_1 > number_3) {
+            console.log(number_1);
+        } else if (number_2 > number_1 && number_2 > number_3) {
+            console.log(number_2);
+        } else {
+            console.log(number_3);
+        }
+
+        // 2.
+        // Все параматры получаем с клавиатуры!!!!
+        // Имитируем поведение пешехода на перекстке.
+        // Если светофор зеленый - вывести "иди".
+        // Если светофор желтый - вывести "подожди".
+        // Если светофор красный - вывести "стой".
+        // Если светофор в аварийном режиме вывести "делай что хочешь"!
+        let traffic_light = prompt('Введите цвет сигнала светофора!');
+
+        switch (traffic_light) {
+            case 'зеленый':
+                alert('иди!');
+                break;
+            case 'желтый':
+                alert('подожди!');
+                break;
+            case 'красный':
+                alert('стой!');
+                break;
+            default:
+                alert('делай что хочешь!');
+        }
+
+
+        // 3
+        // Все параметры получаем с клавиатуры!!!!(prompt , confirm)
+        // Создать переменную isRoadClear которая характеризирует наличие на дороге машин.
+        // Улучшаем предыдущее задание.
+        // Если светофор зеленый и машин нет - вывести "иди".
+        // Если светофор зеленый и машины есть  - вывести подожди пока нарушители проедут".
+        // Если светофор желтый и машины есть - вывести "жди".
+        // Если светофор желтый и машин нет - вывести "все рано жди".
+        // Если светофор красный и машин нет- вывести "стой все рано".
+        // Если светофор красный - и машины есть вывести "стой и жди".
+        // Если светофор в аварийном режиме вывести "делай что хочешь"!
+        let isRoadClear = prompt('Если на дороге есть машины - введите true, иначе - false!');
+        
+        switch (traffic_light, isRoadClear) {
+            case 'зеленый' && false:
+                alert('иди!');
+                break;
+            case 'зеленый' && true:
+                alert('подожди пока нарушители проедут!');
+                break;
+            case 'желтый' && true:
+                alert('жди!');
+                break;
+            case 'желтый' && false:
+                alert('все рано жди!');
+                break;
+            case 'красный' && false:
+                alert('стой все рано!');
+                break;
+            case 'красный' && false:
+                alert('стой и жди!');
+                break;
+            default:
+                alert('делай что хочешь!');
+        }
+            
+    </script>
+
+</body>
+</html>
