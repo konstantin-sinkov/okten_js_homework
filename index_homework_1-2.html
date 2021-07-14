@@ -178,29 +178,46 @@
         // Если светофор красный - и машины есть вывести "стой и жди".
         // Если светофор в аварийном режиме вывести "делай что хочешь"!
         let isRoadClear = prompt('Если на дороге есть машины - введите true, иначе - false!');
-        
-        switch (traffic_light, isRoadClear) {
-            case 'зеленый' && false:
-                alert('иди!');
-                break;
-            case 'зеленый' && true:
-                alert('подожди пока нарушители проедут!');
-                break;
-            case 'желтый' && true:
-                alert('жди!');
-                break;
-            case 'желтый' && false:
-                alert('все рано жди!');
-                break;
-            case 'красный' && false:
-                alert('стой все рано!');
-                break;
-            case 'красный' && false:
-                alert('стой и жди!');
-                break;
-            default:
-                alert('делай что хочешь!');
+
+        if (traffic_light == 'зеленый' && isRoadClear == false) {
+            alert('иди!');
+        } else if (traffic_light == 'зеленый' && isRoadClear) {
+            alert('подожди пока нарушители проедут!');
+        } else if (traffic_light == 'желтый' && isRoadClear) {
+            alert('жди!');
+        } else if (traffic_light == 'желтый' && isRoadClear == false) {
+            alert('все рано жди!');
+        } else if (traffic_light == 'красный' && isRoadClear) {
+            alert('все рано жди!');
+        } else if (traffic_light == 'красный' && isRoadClear == false) {
+            alert('все рано жди!');
+        } else {
+            alert('делай что хочешь!');
         }
+        
+        
+        // switch (traffic_light, isRoadClear) {
+        //     case 'зеленый' && false:
+        //         alert('иди!');
+        //         break;
+        //     case 'зеленый' && true:
+        //         alert('подожди пока нарушители проедут!');
+        //         break;
+        //     case 'желтый' && true:
+        //         alert('жди!');
+        //         break;
+        //     case 'желтый' && false:
+        //         alert('все рано жди!');
+        //         break;
+        //     case 'красный' && false:
+        //         alert('стой все рано!');
+        //         break;
+        //     case 'красный' && false:
+        //         alert('стой и жди!');
+        //         break;
+        //     default:
+        //         alert('делай что хочешь!');
+        // }
             
     </script>
 
