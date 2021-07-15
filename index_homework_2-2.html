@@ -7,28 +7,48 @@
     <title>Document</title>
 </head>
 
-<body>
+<style>
+    body{
+        width: 1160px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .post-card {
+        width: 200px;
+        margin-bottom: 10px;
+        background-color: gainsboro;
+        padding: 0 10px;
+    }
+</style>
     
-<!--template 1.1-->
-<!-- <div class="wrap">
-    <div class="post-card">
-        <h3>ID - TITLE</h3>
-        <p>BODY</p>
-    </div>
+<body>
 
-
-    ...
-    ...
-    ...
-    other posts
-
-</div> -->
-
-
-<script>
+    <script>
     /*За допомогою циклу вивести всю інформацію про пости використовуючи шаблон Template 1.1.
     * ЗА допомоги стилів побудувати структуру "сітки" по 5 об'єктів в лінію
     * */
+
+    // <!--template 1.1-->
+    // <div class="wrap">
+    // <div class="post-card">
+    //     <h3>ID - TITLE</h3>
+    //     <p>BODY</p>
+    // </div>
+
+
+    // ...
+    // ...
+    // ...
+    // other posts
+    // </div>
+
     let user_posts = [
         {
             userId: 1,
@@ -645,7 +665,7 @@
 
     document.write('</div>');
 
-    </script>    
-
+</script> 
+    
 </body>
 </html>
