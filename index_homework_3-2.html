@@ -18,15 +18,10 @@
 
         // - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
         function minimum(arg1, arg2, arg3) {
-            let min;
-            if (arg1 < arg2) {
-                arg1 = min;
-            } else {
-                arg2 = min;
-            }
-
-            if (min < arg3) {
-                document.write(`<p>${min}</p>`);
+            if (arg1 < arg2 && arg1 < arg3) {
+                document.write(`<p>${arg1}</p>`);
+            } else if (arg2 < arg3 && arg2 < arg1){
+                document.write(`<p>${arg2}</p>`);
             } else {
                 document.write(`<p>${arg3}</p>`);
             }
@@ -36,72 +31,194 @@
         function maximum(arg1, arg2, arg3) {
             if (arg1 > arg2 && arg1 > arg3) {
                 document.write(`<p>${arg1}</p>`);
-            } else if (arg2 > arg3){
+            } else if (arg2 > arg3 && arg2 > arg1){
                 document.write(`<p>${arg2}</p>`);
             } else {
                 document.write(`<p>${arg3}</p>`);
             }
         }
 
-        // - створити функцію яка повертає найбільше число з масиву
+        //!!! - створити функцію яка повертає найбільше число з масиву
         function arrayMax(arr) {
             let max = arr[0];
+
             for (let i = 0; i < arr.length; i++) {
-                if (arguments[i] > max) {
-                    max = arguments[i];
+                if (arr [i] > max) {
+                    max = arr[i];
                 }
             }
-            re;
+            return max;
         }
 
-        // - створити функцію яка повертає найменьше число з масиву
+        //!!! - створити функцію яка повертає найменьше число з масиву
+        function arrayMin(arr) {
+            let min = arr[0];
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+
+
         // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
         function sumArray(arr) {
             let sum = 0;
-            for ()
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+
+            console.log(sum);
+            return sum;
         }
 
         // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+        function averageArray(arr) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum/arr.length;
+        }
+
         // - створити функцію яка заповнює масив рандомними числами
         // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
         //     Для виведення використати попередню функцію.
-        // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
+        function randomArray(arrLength) {
+            let arr = [];
+            for (let i = 0; i < arrLength; i++) {
+                arr[i] = Math.round(Math.random()*100);
+            }
+            return arr;
+        }
+
+        //!!! - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
         // EXAMPLE:
         //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
-        //
+        function keyArray(arr) {
+            let keyArr = [];
+
+            for (let key of arr) {
+                keyArr.push(arr[key]);
+            }
+
+            return keyArr;
+        }
+
+        keyArray([{name: 'Dima', age: 13}, {model: 'Camry'}]);
+
         //     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
         // EXAMPLE:
         //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
-        //
+        function valueArray(arr) {
+            let valArr = [];
+
+            for (let value in arr) {
+                valArr.push(value);
+            }
+            return valArr;
+        }
+
         //     - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
         //     EXAMPLE:
         // [1,2,3,4]
         //     [2,3,4,5]
         // результат
         //     [3,5,7,9]
-        //
-        //
-        //
-        //
+        function arraySumElements(arr1, arr2) {
+            let resultArray = [];
+
+            for (let i = 0; i < arr1.length; i++) {
+                resultArray[i] = arr1[i] + arr2[i];
+            }
+            return resultArray;
+        }
+
         // - Дан масив ['a', 'b', 'c']. Додайте йому в кінець елементи 1, 2, 3 за допомогою циклу.
+        let arr = ['a', 'b', 'c'];
+        for (let i = 1; i <= 3; i++) {
+            arr.push(i);
+        }
+
         // - Дан масив [1, 2, 3]. Зробіть з нього новий масив [3, 2, 1].
+        let  reversedArr = [];
+        let arr1 = [1, 2, 3];
+        for (let i = 0, j = arr1.length - 1; i < arr1.length, j >= 0; i++, j--) {
+            reversedArr[i] = arr1[j];
+        }
+        console.log(reversedArr);
+
         // - Дан масив [1, 2, 3]. Додайте йому в кінець елементи 4, 5, 6.
+        let arr2 = [1, 2, 3];
+
+        for (let i = 4; i <= 6; i++) {
+            arr2.push(i);
+        }
         // - Дан масив [1, 2, 3]. Додайте йому в початок елементи 4, 5, 6.
-        //
-        //
+        let arr3 = [1, 2, 3];
+
+        for (i = 4; i <= 6; i++) {
+            arr3.unshift(i);
+        }
+        // console.log(arr3);
+
         // - Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [4, 5].
+        let arr4 = [1, 2, 3, 4, 5];
+        arr4 = arr4.slice(3, 5)
+        // console.log(arr4);
+
         // - Дан масив [1, 2, 3, 4, 5]. Перетворіть масив в [1,2].
+        let arr5 = [1, 2, 3, 4, 5];
+        arr5 = arr5.slice(0, 2);
+        // console.log(arr5);
+
         // - Дан масив [1, 2, 3, 4, 5]. Зробіть з нього масив [1, 2, 3, 'a', 'b', 'c'].
-        //
-        //
+        let arr6 = [1, 2, 3, 4, 5];
+        arr6.push('a', 'b', 'c');
+        console.log(arr6);
+
         // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
-        //
-        // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу скопіювати значення одного масиву в інший.
-        //
+        let arr7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        for (let i = 0; i < arr7.length; i++) {
+            if (arr7[i] % 2 === 0) {
+                console.log(arr7[i]);
+            }
+        }
+
+        // - Взяти масив з 10 чисел або створити його. Створити 2й порожній масив. За допомогою будь-якого циклу
+        // скопіювати значення одного масиву в інший.
+        let arr7_copy = [];
+        for (let i = 0; i < arr7.length; i++) {
+            arr7_copy[i] = arr7[i];
+        }
+        // console.log(arr7_copy);
+
         // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
+        let arr8 = [ 'a', 'b', 'c'];
+        let str = '';
+
+        for (let i = 0; i < arr8.length; i++) {
+            str += arr8[i];
+        }
+        // console.log(str);
+
         // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
+        let str1 = '';
+        let i = 0;
+
+        while (i < arr8.length) {
+            str1 += arr8[i];
+        }
+
         // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
-        // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
+        let str2 = '';
+
+        for (const char of arr8) {
+            str2 += char;
+        }
+        // console.log(str2);
 
     </script>
 </body>
