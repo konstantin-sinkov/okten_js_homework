@@ -9,6 +9,7 @@
 </head>
 <body>
     <script>
+       <script>
         // - створити функцію яка приймає масив та виводить його
         function array(arr) {
             for (let i = 0; i < arr.length; i++) {
@@ -38,7 +39,7 @@
             }
         }
 
-        //!!! - створити функцію яка повертає найбільше число з масиву
+        // - створити функцію яка повертає найбільше число з масиву
         function arrayMax(arr) {
             let max = arr[0];
 
@@ -50,7 +51,7 @@
             return max;
         }
 
-        //!!! - створити функцію яка повертає найменьше число з масиву
+        // - створити функцію яка повертає найменьше число з масиву
         function arrayMin(arr) {
             let min = arr[0];
 
@@ -100,11 +101,13 @@
         function keyArray(arr) {
             let keyArr = [];
 
-            for (let key of arr) {
-                keyArr.push(arr[key]);
+            for (let i = 0; i < arr.length; i++) {
+                for(let key in arr[i]) {
+                    keyArr.push(key);
+                }
             }
 
-            return keyArr;
+            return keyArr
         }
 
         keyArray([{name: 'Dima', age: 13}, {model: 'Camry'}]);
@@ -115,9 +118,12 @@
         function valueArray(arr) {
             let valArr = [];
 
-            for (let value in arr) {
-                valArr.push(value);
+            for (let i = 0; i < arr.length; i++) {
+                for(let key in arr[i]) {
+                    valArr.push(arr[i][key]);
+                }
             }
+
             return valArr;
         }
 
@@ -220,6 +226,7 @@
         }
         // console.log(str2);
 
+    </script>
     </script>
 </body>
 </html>
