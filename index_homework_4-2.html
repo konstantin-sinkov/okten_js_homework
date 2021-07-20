@@ -73,8 +73,12 @@
             productionYear = newValue;
         }
 
-        this.addDriver = function (driver) {
-            return Car.driver(name, age);
+        this.addDriver = function(driverName, driverAge) {
+            let driver = {
+                name: driverName,
+                age: driverAge
+            };
+            return this.driver = driver;
         }
 
     }
