@@ -59,10 +59,11 @@
 
     function nameNormalise(name) {
         let nameArr = name.split('');
-
+        console.log(nameArr);
         for (let i = 0; i < nameArr.length;) {
-            if (nameArr[i] === ' ' && nameArr[i-1] !== ' ') {
+            if (nameArr[i] === ' ' && nameArr[i+1] === ' '|| i === 0 || i === nameArr.length - 1) {
                 nameArr.splice(i, 1);
+                i++;
             } else {
                 i++;
             }
@@ -72,6 +73,10 @@
         console.log(normalisedName);
     }
 
+    nameNormalise(n1);
+    nameNormalise(n2);
+    nameNormalise(n3);
+
     // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
     // Двожина масиву від 2 до 100
     // EXAMPLE:
@@ -79,9 +84,13 @@
     // [0,1,2,3,4] => [1,2,3,4,0]
     // [0,0,1,0]   => [1,0,0,0]
     function nullToEnd(arr) {
-        for (let i = 0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length;) {
             if (arr[i] === 0) {
-                arr.splice(i, 1).push(0);
+                arr.splice(i, 1);
+                arr.push(0);
+                i++
+            } else {
+                i++;
             }
         }
         console.log(arr)
