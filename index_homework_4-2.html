@@ -126,10 +126,11 @@
         }
 
         addDriver(name, driverLicense) {
-            let driver = {};
-
-            this.driver.name = name;
-            this.driver.driverLicense = driverLicense;
+            let driver = {
+                name: name,
+                driverLicense: driverLicense
+            };
+            return this.driver = driver;
         }
 
     }
@@ -143,6 +144,7 @@
     ford.info();
 
     ford.addDriver('Igor', '1234cd');
+    console.log(ford);
 
 
     //
@@ -181,12 +183,12 @@
         }
     }
 
-    let cinderellaShoe = cinderellas.find((footSize) => footSize === prince.shoeSize);
+    let resultCinderella = cinderellas.find( ({footSize}) => footSize === prince.shoeSize);
 
     // console.log(cinderellas);
     // console.log(prince);
 
-    console.log(cinderellaShoe);
+    console.log(resultCinderella);
     
 
 </script>
