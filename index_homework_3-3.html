@@ -58,19 +58,24 @@
     // let n3 = 'Hermione Granger'
 
     function nameNormalise(name) {
-        let nameArr = name.split('');
-        console.log(nameArr);
-        for (let i = 0; i < nameArr.length;) {
-            if (nameArr[i] === ' ' && nameArr[i+1] === ' '|| i === 0 || i === nameArr.length - 1) {
-                nameArr.splice(i, 1);
-                i++;
-            } else {
-                i++;
-            }
-        }
+        let normalisedName = name.trim();
+        normalisedName = normalisedName.split(' ');
 
-        let normalisedName = nameArr.join('');
+        normalisedName = normalisedName.filter(char => {
+            if (char !== '') { //if char is not empty != whitespace
+                return true;
+            }
+        });
+
+        normalisedName = normalisedName.join(' ');
         console.log(normalisedName);
+
+        // for (let i = 0; i < normalisedName.length; i++) {
+        //     if (normalisedName[i] === ' ' && normalisedName[i-1] !== ' ') {
+        //         normalisedName.splice(i, 1);
+        //     }
+        // }
+
     }
 
     nameNormalise(n1);
@@ -84,16 +89,16 @@
     // [0,1,2,3,4] => [1,2,3,4,0]
     // [0,0,1,0]   => [1,0,0,0]
     function nullToEnd(arr) {
-        for (let i = 0; i < arr.length;) {
+        const zeroArray = [];
+
+        for (let i = 0; i < arr.length; i++) {
             if (arr[i] === 0) {
                 arr.splice(i, 1);
-                arr.push(0);
-                i++
-            } else {
-                i++;
+                zeroArray.push(0);
+                i--;
             }
         }
-        console.log(arr)
+        console.log(arr.concat(zeroArray));
     }
 
   </script>
