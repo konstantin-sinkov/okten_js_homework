@@ -126,11 +126,11 @@
         }
 
         addDriver(name, driverLicense) {
-            let driver = {
+            this.driver = {
                 name: name,
                 driverLicense: driverLicense
             };
-            return this.driver = driver;
+            return this.driver;
         }
 
     }
@@ -175,13 +175,18 @@
         new Cinderella('Nella', 20, 40),
     ]
 
-    let prince = {name: 'Jaime', age: 29, shoeSize: (Math.round(Math.random()*10) + 30)} //
+    let prince = {name: 'Jaime', age: 29, shoeSize: (Math.round(Math.random()*10) + 30)}
 
-    for (let i = 0; i < cinderellas.length; i++) {
-        if (cinderellas[i].footSize === prince.shoeSize) {
-            console.log(`Prince found ${cinderellas[i].name}'s shoe!`);
+    for (const cinderella of cinderellas) {
+        if (cinderella.footSize === prince.shoeSize) {
+            console.log(`Prince found ${cinderella.name}'s shoe!`);
         }
     }
+    // for (let i = 0; i < cinderellas.length; i++) {
+    //     if (cinderellas[i].footSize === prince.shoeSize) {
+    //         console.log(`Prince found ${cinderellas[i].name}'s shoe!`);
+    //     }
+    // }
 
     let resultCinderella = cinderellas.find( ({footSize}) => footSize === prince.shoeSize);
 
