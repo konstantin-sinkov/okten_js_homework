@@ -48,6 +48,10 @@
         console.log(arr);
     }
 
+    foo([9,8,0,4], 0);
+    foo([9,8,0,4], 1);
+    foo([9,8,0,4], 2);
+
     // - Дано список імен.
     let n1 = '    Harry       Potter      ';
     let n2 = '    Ron       Whisley      ';
@@ -69,13 +73,6 @@
 
         normalisedName = normalisedName.join(' ');
         console.log(normalisedName);
-
-        // for (let i = 0; i < normalisedName.length; i++) {
-        //     if (normalisedName[i] === ' ' && normalisedName[i-1] !== ' ') {
-        //         normalisedName.splice(i, 1);
-        //     }
-        // }
-
     }
 
     nameNormalise(n1);
