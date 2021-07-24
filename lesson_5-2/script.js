@@ -64,7 +64,7 @@ for (let i = 0; i < subHeaders.length; i++) {
 let content_1 = document.getElementsByClassName('content_1')[0];
 const content_1text = prompt('Enter text to content 1 block');
 
-content_1.innerHTML = `<p class="text_segment text2">${content_1text}</p>`;
+content_1.innerHTML = `<p class="text_segment text1">${content_1text}</p>`;
 
 // l) отримати елементи p та змінити їм padding на 20px
 let peshkas = document.getElementsByTagName('p');
