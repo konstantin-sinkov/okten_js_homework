@@ -44,14 +44,28 @@
         title: 'Восьмое и последнее правило Бойцовского клуба.',
         body: 'Новичок обязан принять бой.'
       },
-
     ];
+
 
     let wrap = document.createElement('div');
     wrap.classList.add('wrap');
 
-    let rule = document.createElement('div');
-    let title = document.createElement('')
+    for (const rule of rules) {
+        let ruleItem = document.createElement('div');
+        let title = document.createElement('h3');
+        let body = document.createElement('p');
+
+        title.innerText = rule.title;
+        body.innerText = rule.body;
+        ruleItem.appendChild(title);
+        ruleItem.appendChild(body);
+
+        wrap.appendChild(ruleItem);
+    }
+
+    document.body.appendChild(wrap);
+
+
 </script>
 
 </body>
