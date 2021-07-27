@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .usersDiv {
+        background-color: #cbd7d3;
+        padding: 20px;
+      }
+
+      .hidden {
+          display: none;
+      }
+    </style>
+</head>
+<body>
+  <div class="usersDiv"></div>
+
+  <script>
+    // Отримати відповідь з цього ресурсу відповідь, та вивести в документ як в прикладі на занятті
+    // https://jsonplaceholder.typicode.com/users
+    // кожному елементу юзера створити кнопку, при клику на яку в окремий блок виводяться всі пости поточного юзера.
+    // Кожному елементу post створити кнопку, при клику на яку в окремий блок виводяться всі коментарі поточного поста
+    let usersDiv = document.getElementsByClassName('usersDiv')[0];
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(data => data.json())
+        .then(users => {
+            for (const user of users) {
+                let userBlock = document.createElement('div');
+                userBlock.style.margin = '20px 0';
+                userBlock.style.padding = '10px';
+                userBlock.style.backgroundColor = '#f6b87d'
+
+                userBlock.innerHTML = `
+                    <h3>${user.username}</h3>
+                    <h4>${user.name}</h4>
+                `;
+                let btnPosts = document.createElement('button');
+                btnPosts.innerText = 'POSTS';
+
+                userBlock.appendChild(btnPosts);
+                usersDiv.appendChild(userBlock);
+
+                btnPosts.onclick = function () {
+                    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+                        .then(data => data.json())
+                        .then(posts => {
+                            let postsUl = document.createElement('ul');
+
+                            for (const post of posts) {
+                                let postLi = document.createElement('li');
+                                // let postId = post.id;
+
+                                postLi.style.margin = '5px';
+                                postLi.innerText = post.body;
+
+                                let commentsBtn = document.createElement('button');
+                                commentsBtn.innerText = 'COMMENTS';
+
+                                postLi.appendChild(commentsBtn);
+                                postsUl.appendChild(postLi);
+                                userBlock.appendChild(postsUl);
+
+                                commentsBtn.onclick = function () {
+                                    fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+                                        .then(data => data.json())
+                                        .then(comments => {
+                                            let commentsOl = document.createElement('ol');
+                                            for (const comment of comments) {
+                                                let commentLi = document.createElement('li');
+                                                commentLi.innerText = comment.body;
+                                                commentsOl.appendChild(commentLi);
+
+                                                postLi.appendChild(commentsOl);
+                                            }
+                                        })
+                                }
+
+                            }
+                        })
+
+                }
+            }
+        })
+
+
+
+  </script>
+</body>
+</html>
