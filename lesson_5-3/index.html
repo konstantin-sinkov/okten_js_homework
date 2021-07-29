@@ -9,14 +9,20 @@
 </head>
 <body>
     <form id="nameForm" action="index2.html">
-        <input type="text" name="name">
+        <input type="text" name="name" placeholder="введіть ім'я користувача">
         <button>save</button>
     </form>
 
     <hr>
 
-    <form action=""></form>
-
+    <form id="itemForm" action="">
+        <input type="text" name="itemName" placeholder="назва товару"><br>
+        <input type="text" name="itemQty" placeholder="кількість товару"><br>
+        <input type="text" name="itemPrice" placeholder="ціна товару"><br>
+        <input type="text" name="itemURL" placeholder="посилання на картинку"><br>
+        <input type="submit" name="addItem">
+    </form>
+    <a href='list.html'>На сторінку товарів</a>
 
   <script>
       // - Створити форму з інпутом для введення ім'я, та action="index2.html".
@@ -36,12 +42,9 @@
           localStorage.setItem('user', jsonUser);
       });
 
-
-
-
       // - Імітуємо наповнення інтернет магазину товарами :
       //     Створити форму з наступними полями :
-      //     - назва товару
+      // - назва товару
       // - кількість товару
       // - ціна товару
       // - картинка товару (посилання з інтернету)
@@ -49,6 +52,48 @@
       //     створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.
       // На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.
       //     До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар
+    
+      const itemForm = document.forms.itemForm;
+      const itemName = itemForm.itemName;
+      const itemQty = itemForm.itemQty;
+      const itemPrice = itemForm.itemPrice;
+      const itemURL = itemForm.itemURL;
+      const addItem = itemForm.addItem;
+
+      addItem.onclick = (event) => {
+          event.preventDefault();
+
+          let name = itemName.value;
+          let qty = itemQty.value;
+          let price = itemPrice.value;
+          let url = itemURL.value;
+
+          let item = {
+            name: name,
+            qty: qty,
+            price: price,
+            url: url
+          }
+
+          let storage = [];
+          
+          const storageJSON = localStorage.getItem('storage');
+
+          if (storageJSON) {
+              storage = JSON.parse(storageJSON);
+          }
+
+          storage.push(item);
+
+          localStorage.setItem('storage', JSON.stringify(storage));
+
+          // let jsonItem = JSON.stringify(item);
+        //   localStorage.setItem(`item${Math.round(Math.random()*100)}` ,jsonItem);
+        //   itemName.value = itemQty.value = itemPrice.value = itemURL.value = '';
+
+      }
+      
+
 
     //   const form = document.forms.itemForm;
     //   const name = form.name;
