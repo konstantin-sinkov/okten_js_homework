@@ -18,10 +18,37 @@
     <script>
         let itemsBlock = document.getElementsByClassName('itemsBlock')[0];
         let itemsJSON = localStorage.getItem('storage');
+        const deleteAllBtn = document.getElementsByClassName('clear')[0];
 
         if (itemsJSON) {
             const items = JSON.parse(itemsJSON);
             // console.log(items);
+
+        //     for (let i = 0; i < items.length; i++ ) {
+        //         let itemDiv = document.createElement('div');
+        //         itemDiv.classList.add('itemDiv');
+        //         let itemDeleteBtn = document.createElement('button');
+        //         itemDeleteBtn.innerText = 'DELETE';
+
+        //         itemDiv.innerHTML = 
+        //         `
+        //             <p>${items[i].name}</p>
+        //             <p>${items[i].qty} -- ${items[i].price}</p>
+        //             <img src=${items[i].url} style="with: 200px" alt=${items[i].name}>
+        //         `
+        //         itemDiv.appendChild(itemDeleteBtn);
+        //         itemsBlock.appendChild(itemDiv);
+
+        //         itemDeleteBtn.onclick = function () {
+        //             items.splice(i, 1);
+        //         }
+        //     }
+        // }
+
+            for (let i = 0; i < items.length; i++) {
+                items[i].id = i;
+            }
+
 
             for (let item of items) {
                 let itemDiv = document.createElement('div');
@@ -29,40 +56,32 @@
                 let itemDeleteBtn = document.createElement('button');
                 itemDeleteBtn.innerText = 'DELETE';
 
+
+
                 itemDiv.innerHTML = 
                 `
                     <p>${item.name}</p>
                     <p>${item.qty} -- ${item.price}</p>
                     <img src=${item.url} style="with: 200px" alt=${item.name}>
                 `
+
                 itemDiv.appendChild(itemDeleteBtn);
                 itemsBlock.appendChild(itemDiv);
 
-                itemDeleteBtn.onclick = function () {
-                    items.splice()
+                itemDeleteBtn.onclick = function (event) {
+                    itemDiv.innerHTML = '';
+
+                    items.splice(item.id, 1);
+                    console.log(items);
+
+                    localStorage.setItem('storage', JSON.stringify(items));
                 }
             }
         }
 
-        // let itemsStorageJSON = window.localStorage;
-        // let itemsStorage = JSON.stringify(itemsStorageJSON);
-        // itemsStorage = JSON.parse(itemsStorage);
-
-        // console.log(itemsStorage);
-        // let itemsBlock = document.getElementsByClassName('itemsBlock')[0];
-
-        // for (item of itemsStorage) {
-        //     let itemDiv = document.createElement('div');
-        //     let itemDeleteBtn = document.createElement('button');
-
-        //     itemDiv.innerHTML = ` <h5>${item.name}</h5>
-        //                           ${item.qty} pcs. -- ${item.price}UAH
-        //                           <img src=${item.url} alt=${item.name}>
-        //                          `;
-        //     itemDiv.appendChild(itemDeleteBtn);
-        //     itemsBlock.appendChild(itemDiv);
-        // }
-
+        deleteAllBtn.onclick = function() {
+            localStorage.clear();
+        }
 
     </script>
 </body>
