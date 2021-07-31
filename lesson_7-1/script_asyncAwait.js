@@ -14,75 +14,148 @@
 // І так далі
 
 function wakeUp() {
-    setTimeout(() => {
-        console.log('Time to wake up!');
-    }, 500);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Time to wake up!');
+            let eggs = 5;
+            // return ;
+            resolve(eggs);
+        }, 500);})
+
 }
 
 function mealPrepearing(eggs) {
-    setTimeout(() => {
-        if (eggs > 0) {
-            console.log('I fry omelet!');
-        } else {
-            console.log("I'll be hungry!");
-        }
-    }, 300);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (eggs < 0) {
+                reject(console.log("I'll be hungry!"));
+            } else {
+                console.log('I fry omelet!');
+                resolve(true);
+            }
+        }, 300);
+    })
 }
 
 function goToWork(rainy) {
-    setTimeout(() => {
-        if (rainy) {
-            console.log('I go to work by marshrutka!');
-        } else {
-            console.log('I walk to work');
-        }
-    }, 200); 
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (rainy) {
+                for (let i = 0; i < Math.round(Math.random()*10); i++) {
+                    let time = i;
+                    console.log(`I go to work by marshrutka ${time} minutes`);
+                }
+                resolve('I am at work');
+            } else {
+                reject(console.log("I'm late"));
+            }
+        }, 3200);}
+    )
+
+
 }
 
 function drinkCoffee() {
-    setTimeout(() => {
-        console.log('Time to drink coffee!');
-    }, 500);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Time to drink coffee!');
+            resolve();
+        }, 500)});
 }
 
 function doSomeWork() {
-    setTimeout(() => {
-        console.log('Time to do some work!');
-    }, 700);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Time to do some work!');
+            let money = (Math.round(Math.random()*1000));
+            console.log((`I earn ${money} UAH`));
+            resolve(money);
+            // resolve (`I earn ${money} UAH`);
+            // return money;
+        }, 700)});
 }
 
-function drinkCoffeeAgain() {
-    setTimeout(() => {
-        console.log('Time to drink coffee!');
-    }, 500);
+
+function drinkCoffeeAgain(money) {
+    console.log('*****************');
+    console.log(money);
+    console.log('*****************');
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Time to drink coffee again!');
+            resolve(money);
+        }, 450)});
 }
 
-function goHome(eggs) {
-    setTimeout(() => {
-        if (eggs > 0) {
-            console.log('I go home!');
-        } else {
-            console.log("I need go to the supermarket!");
-        }
-    }, 400);
+function goHome(money) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (money > 400) {
+                console.log('I go to pub with friends');
+                resolve("It was a good day");
+            } else {
+                reject("It was a bad day");
+            }
+        }, 1000)});
 }
 
 function dinnerTime() {
-    setTimeout(() => {
-        console.log('Time to have dinner!');
-    }, 900);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Time to have dinner!');
+            resolve();
+        }, 1900)})
+
 }
 
-function learning() {
-    setTimeout(() => {
-        console.log('Time to learn!');
-    }, 800);
+function timeToLearn() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Time to learn!');
+            resolve();
+        }, 1700)})
 }
 
 function timeToSleep() {
-    setTimeout(() => {
-        console.log('Time to sleep!');
-    }, 1000);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Time to sleep!');
+            resolve();
+        }, 2800)})
 }
 
-wakeUp(); mealPrepearing(2); goToWork(true); drinkCoffee(); doSomeWork(); drinkCoffeeAgain(); goHome(0); dinnerTime(); timeToSleep();
+// wakeUp(); mealPrepearing(2); goToWork(true); drinkCoffee(); doSomeWork(); drinkCoffeeAgain(); goHome(0); dinnerTime(); timeToSleep();
+
+const timeTable = async () => {
+    try {
+        console.log('1st I');
+        const wakingUp = await wakeUp();
+        console.log('2nd I');
+        const mealPrepear = await mealPrepearing(wakingUp);
+        console.log('3rd I');
+        const goingTowork = await goToWork(true);
+        console.log('4th I');
+        const coffeeDrinking = await drinkCoffee();
+        console.log('5th I');
+        const doingWork = await doSomeWork();
+        console.log('6th I');
+        const coffeeDrinking2 = await drinkCoffeeAgain(doingWork);
+        console.log('7th I');
+        const goingHome = await goHome(coffeeDrinking2);
+        console.log('8th I');
+        const eatingDinner = await dinnerTime();
+        console.log('9th I');
+        const learning = await timeToLearn();
+        console.log('10th I');
+        const sleeping = await timeToSleep();
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+timeTable();
+
+
+
+
+
