@@ -155,12 +155,11 @@ wakeUp()
         return drinkCoffeeAgain(money);
     })
     .then(money => {
-       // console.log(e);
        console.log('7th I');
        return goHome(money);
     })
     .then(e => {
-        // console.log(e);
+        console.log(e);
         console.log('8th I');
         return dinnerTime();
     })
