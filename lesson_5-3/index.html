@@ -72,7 +72,7 @@
             name: name,
             qty: qty,
             price: price,
-            url: url
+            url: url,
           }
 
           let storage = [];
@@ -83,50 +83,13 @@
               storage = JSON.parse(storageJSON);
           }
 
+          //add id value to the items
+          item.id = storage.length + 1;
+
           storage.push(item);
 
           localStorage.setItem('storage', JSON.stringify(storage))
-
-        //   let jsonItem = JSON.stringify(item);
-        //   localStorage.setItem(`item${Math.round(Math.random()*100)}` ,jsonItem);
-        //   itemName.value = itemQty.value = itemPrice.value = itemURL.value = '';
-
       }
-      
-
-
-    //   const form = document.forms.itemForm;
-    //   const name = form.name;
-    //   const price = form.price;
-    //   const ok = form.ok;
-    //
-    //   ok.onclick = function (event) {
-    //
-    //   }
-    //
-    //
-    // getAllBtn = function () {
-    //   const allItemsJSON = localStorage.getItem('storage');
-    //
-    //   if (!allItemsJSON) {
-    //     return
-    //   }
-    // }
-    //
-    // const items = JSON.parse(allItemsJSON);
-    //
-    // for (const item of items) {
-    //   const itemDiv = document.createElement('div');
-    //   const button = document.createElement('button');
-    //
-    //   button.innerHTML = 'DELETE';
-    //
-    //   button.onclick = function (event) {
-    //     const divToRemove
-    //   }
-    // }
-
-
 
   </script>
 </body>

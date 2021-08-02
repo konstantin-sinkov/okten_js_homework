@@ -76,61 +76,67 @@
 
     // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement.
     // Всі данні в одному блоці.
-      for (const user of users) {
-          let userDiv = document.createElement('div');
-          userDiv.innerHTML = `${user.name} -- ${user.age} -- ${user.status}`;
+    //   for (const user of users) {
+    //       let userDiv = document.createElement('div');
+    //       userDiv.innerHTML = `${user.name} -- ${user.age} -- ${user.status}`;
 
-          document.body.appendChild(userDiv);
-      }
+    //       document.body.appendChild(userDiv);
+    //   }
 
     // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement,
     // розділивши всі властивості по своїм блокам (div>div*4)
-      let nameDiv = document.createElement('div');
-      let ageDiv = document.createElement('div');
-      let statusDiv = document.createElement('div');
-      let  addressDiv = document.createElement('div');
 
-      for (const user of users) {
-          let userBlock = document.createElement('div');
-
-          nameDiv.innerText = `user name - ${user.name}`;
-          ageDiv.innerText = `user age - ${user.age}`;
-          statusDiv.innerText = `user status - ${user.status}`;
-          addressDiv.innerText = `city - ${user.address.city}, country - ${user.address.country}, street - ${user.address.street}, houseNumber - ${user.address.houseNumber}`;
-
-          userBlock.append(nameDiv, ageDiv, statusDiv, addressDiv);
-          userBlock.style.margin = '30px 0';
-
-          document.body.appendChild(userBlock);
-      }
-      console.log(addresses);
-
-    // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement,
+        // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement,
     // розділивши всі властивості по своїм блокам , блок з адресою зробити окремим блоком, з блоками для кожної властивості
+      
 
-      for (const user of users) {
-          let userBigBlock = document.createElement('div');
+      for (let user of users) {
 
-          let addressDivBlock = document.createElement('div');
-          let cityDiv = document.createElement('div');
-          let countryDiv = document.createElement('div');
-          let streetDiv = document.createElement('div');
-          let houseNumberDiv = document.createElement('div');
+        let nameDiv = document.createElement('div');
+        let ageDiv = document.createElement('div');
+        let statusDiv = document.createElement('div');
+        let  addressDiv = document.createElement('div');
+        addressDiv.style.border = '1px solid black';
 
-          nameDiv.innerText = `user name - ${user.name}`;
-          ageDiv.innerText = `user age - ${user.age}`;
-          statusDiv.innerText = `user status - ${user.status}`;
-          cityDiv.innerText = `city - ${user.address.city}`;
-          countryDiv.innerText = `country - ${user.address.country}`;
-          streetDiv.innerText = `street - ${user.address.street}`;
-          houseNumberDiv.innerText = `houseNumber - ${user.address.houseNumber}`;
 
-          addressDiv.append(cityDiv, countryDiv, streetDiv, houseNumberDiv);
-          userBigBlock.append(nameDiv, ageDiv, statusDiv, addressDiv);
-          userBigBlock.style.margin = '30px 0';
+        let cityDiv = document.createElement('div');
+        let countryDiv = document.createElement('div');
+        let streetDiv = document.createElement('div');
+        let houseNumberDiv = document.createElement('div');
+          
+        let userBlock = document.createElement('div');
+        userBlock.style.width = '700px';
+        userBlock.style.border = '1px solid black';
 
-          document.body.appendChild(userBigBlock);
+        nameDiv.innerText = `user name - ${user.name}`;
+        ageDiv.innerText = `user age - ${user.age}`;
+        statusDiv.innerText = `user status - ${user.status}`;
+        //   addressDiv.innerText = `city - ${user.address.city}, country - ${user.address.country}, street - ${user.address.street}, houseNumber - ${user.address.houseNumber}`;
+
+        cityDiv.innerText = `city - ${user.address.city}`;
+        countryDiv.innerText = `country - ${user.address.country}`;
+        streetDiv.innerText = `street - ${user.address.street}`;
+        houseNumberDiv.innerText = `houseNumber - ${user.address.houseNumber}`;
+
+        addressDiv.append(cityDiv);
+        addressDiv.append(countryDiv);
+        addressDiv.append(streetDiv);
+        addressDiv.append(houseNumberDiv);
+          
+        userBlock.append(nameDiv);
+        userBlock.append(ageDiv);
+        userBlock.append(statusDiv);
+        userBlock.append(addressDiv);
+          
+        userBlock.style.margin = '30px 0';
+
+        document.body.appendChild(userBlock);
       }
+
+    //   console.log(addresses);
+
+
+
 
 
 
