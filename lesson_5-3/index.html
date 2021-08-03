@@ -76,7 +76,7 @@
           }
 
           let storage = [];
-          
+
           const storageJSON = localStorage.getItem('storage');
 
           if (storageJSON) {
@@ -84,9 +84,14 @@
           }
 
           //add id value to the items
-          item.id = storage.length + 1;
+          // item.id = storage.length + 1;
 
           storage.push(item);
+
+          //add id value to the items
+          for (let i = 0; i < storage.length; i++) {
+              storage[i].id = i + 1;
+          }
 
           localStorage.setItem('storage', JSON.stringify(storage))
       }
